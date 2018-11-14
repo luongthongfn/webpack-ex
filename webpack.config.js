@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const autoprefixer = require("autoprefixer");
 
 const fs = require('fs');
 const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
@@ -22,12 +23,11 @@ files.forEach(file => {
 });
 
 module.exports = {
-  // entries: './src/index.js',
-  // output: {
-  //   path: path.resolve(__dirname, "dist"),
-  //   filename: "bundle.js",
-  //   publicPath: "/dist/js"
-  // },
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "js/bundle.js",
+  },
   module: {
     rules: [{
         test: /\.js$/,
@@ -39,9 +39,11 @@ module.exports = {
           }
         }
       },
-
       {
         test: /\.pug$/,
+        // include: [
+        //   path.resolve(__dirname, "./src/pug")
+        // ],
         use: [
           // "html-loader",
           "raw-loader",
@@ -59,7 +61,10 @@ module.exports = {
           // process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
           MiniCssExtractPlugin.loader,
           "css-loader",
-          "sass-loader",
+            
+          "postcss-loader",
+         "sass-loader",
+           
         ]
       }
     ]
