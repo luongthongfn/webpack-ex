@@ -1,44 +1,80 @@
 const path = require('path');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const fs = require('fs');
+const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
+
+let templates = [];
+let dir = 'src';
+let files = fs.readdirSync(dir);
+
+files.forEach(file => {
+  if (file.match(/\.pug$/)) {
+    let filename = file.substring(0, file.length - 4);
+    templates.push(
+      new HtmlWebpackPlugin({
+        template: dir + '/' + filename + '.pug',
+        filename: filename + '.html'
+      })
+    );
+  }
+});
+
 module.exports = {
+  // entries: './src/index.js',
+  // output: {
+  //   path: path.resolve(__dirname, "dist"),
+  //   filename: "bundle.js",
+  //   publicPath: "/dist/js"
+  // },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: "babel-loader",
+          options: {
+            // presets: ["es2015"]
+          }
         }
       },
 
       {
         test: /\.pug$/,
         use: [
-          "html-loader",
-          "pug-html-loader"
+          // "html-loader",
+          "raw-loader",
+          {
+            loader: "pug-html-loader",
+            options: {
+              pretty: true
+            }
+          }
         ]
       },
       {
-        test: /\.sass$/,
+        test: /\.scss$/,
         use: [
-            MiniCssExtractPlugin.loader,
-            // "style-loader", // style nodes from js strings
-            "css-loader",
-            "sass-loader"
+          // process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "sass-loader",
         ]
       }
     ]
   },
   plugins: [
-    new HtmlWebPackPlugin({
-      template: "./src/index.pug",
-      filename: "./index.html"
-    }),
+    ...templates,
+    // new HtmlWebpackPlugin({
+    //   template: "./src/index.pug",
+    //   filename: "./index.html"
+    // }),
+    new HtmlWebpackPugPlugin(),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: "[name].css",
+      filename: "css/[name].css",
       chunkFilename: "[id].css"
     })
   ]
