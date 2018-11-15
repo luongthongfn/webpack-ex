@@ -1,0 +1,564 @@
+.message {
+    &--bg {
+        width: vwSP(750px);
+        height: vwSP(337px);
+        background: url(../img/message.png) no-repeat;
+        background-size: cover;
+        background-position: center center;
+        margin: auto;
+        border-top: 1px solid #00008f;
+        border-bottom: 1px solid #00008f;
+    }
+
+    &--click {
+        position: relative;
+
+        .dp-mid-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include translate(-50%, -50%);
+            img{
+                width: vwSP(68px);
+                height: vwSP(58px);
+            }
+            span {
+                font-family: 'roboto condensed', sans-serif;
+                font-size: vwSP(14px);
+                display: block;
+                color: #00008f;
+            }
+        }
+    }
+}
+
+.about {
+
+    .container {
+        @extend %wrapper3;
+    }
+
+    .about-top {
+        text-align: center;
+        padding-bottom: vwSP(34px);
+
+        .desc {
+            background: #F8F8F8;
+            font-size: vwSP(26px);
+            line-height: vwSP(36px);
+            font-weight: bold;
+            text-align: center;
+            color: #0040A0;
+            padding: vwSP(25.5px) vwSP(19px) vwSP(30px);
+            box-shadow: 0 2px 6px transparentize(#000, .84);
+        }
+    }
+
+    .about-bottom {
+        .about-department{
+            position: relative;
+            background: url(../img/depart-bg.png) no-repeat;
+            // background-size: 100% 100%;
+            background-size: cover;
+            background-position: center center;
+            text-align: center;
+            padding: 0 vwSP(15) vwSP(20);
+            transform: perspective(1px) translateZ(0);
+            border: 2px solid #fff;
+
+            &:after {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                top: vwSP(20px);
+                right: vwSP(20px);
+                bottom: vwSP(21px);
+                left: vwSP(20px);
+                border: 3px solid #fff;
+            }
+
+            .department-label {
+                position: relative;
+                display: inline-block;
+
+                >img {
+                    box-shadow: -2.5px 1.5px 5px transparentize(#000, .75);
+                    width: vwSP(200px);
+                    height: vwSP(200px);
+                }
+
+                .dp-mid-center {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    @include translate(-50%, -50%);
+                    color: #fff;
+                    font-size: vwSP(20px);
+                    text-transform: uppercase;
+
+                    h3 {
+                        font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+                        font-size: vwSP(22px);
+                        font-weight: bold;
+                        letter-spacing: 3px;
+                    }
+                }
+            }
+
+            .department-summary {
+                font-weight: bold;
+                width: vwSP(480);
+                margin: auto;
+
+                &--heading {
+                    font-size: vwSP(30px);
+                    color: #358dcc;
+                }
+
+                p {
+                    font-size: vwSP(20px);
+                    color: #333;
+                }
+            }
+
+            .arrow-down {
+                img {
+                    margin-top: vwSP(10);
+                    margin-bottom: vwSP(10);
+                }
+            }
+        }
+    }
+
+    .depart-content {
+        background: url(../img/depart-content-bg.png);
+        padding: vwSP(60) 0;
+
+        .card {
+            width: vwSP(635);
+            background: #fff;
+            padding: vwSP(40);
+            margin: auto;
+            margin-bottom: vwSP(40);
+            border-radius: 4px;
+            box-shadow: 0 0 5px transparentize(#000, .9);
+
+            &--heading {
+                color: #00008f;
+                font-size: vwSP(30);
+                margin-bottom: vwSP(30);
+
+                .icon {
+                    display: inline-block;
+                    vertical-align: middle;
+                    width: vwSP(90);
+                    height: vwSP(90);
+                    background: #358dcc;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 4px;
+                    box-shadow: 0 1px 2px transparentize(#000, .5);
+                }
+            }
+
+            .txt {
+                font-size: vwSP(30);
+            }
+        }
+    }
+}
+
+.work {
+    margin-bottom: vwSP(150px);
+
+    &--bg {
+        background: url(../img/work-bg.png) center center no-repeat;
+        background-size: cover;
+        padding: vwSP(40px) 0;
+    }
+
+    &--entry {
+        width: vwSP(630px);
+        margin: auto;
+        background: transparentize(#0040A0, .5);
+        padding: vwSP(25px) vwSP(30px);
+        padding-right: vwSP(40px);
+        margin-bottom: vwSP(10px);
+        overflow: auto;
+
+        &--label {
+
+            width: vwSP(250px);
+            height: vwSP(250px);
+            float: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: vwSP(10px);
+            text-align: center;
+            border: 3px solid transparentize(#fff, .5);
+            margin-right: vwSP(56.5px);
+
+            >img {
+                max-width: 50%;
+            }
+
+            span {
+                font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+                font-size: vwSP(24px);
+                color: #fff;
+                white-space: pre-line;
+                display: block;
+                margin-top: vwSP(20px);
+            }
+        }
+
+        &--txt {
+            overflow: hidden;
+
+            h3 {
+                font-size: vwSP(30px);
+                line-height: vwSP(30px);
+                color: #add4c9;
+                text-align: center;
+                margin-bottom: vwSP(10px);
+                white-space: pre-line;
+            }
+
+            p {
+                font-size: vwSP(20px);
+                font-weight: bold;
+                color: #fff;
+                // padding-left: vwSP(13.5px);
+            }
+
+        }
+
+        .read-entry {
+            font-family: 'roboto condensed', sans-serif;
+            font-size: vwSP(36px);
+            font-weight: bold;
+            color: #00008f;
+            text-align: center;
+            display: block;
+            background: #fff;
+            padding: vwSP(13.6px);
+            margin-top: vwSP(30px);
+            border-radius: 100px;
+            transition: all .2s;
+            overflow: hidden;
+            &:focus {
+                background: #00008f;
+                color: #fff;
+            }
+        }
+    }
+}
+
+//pc screen
+@include pc() {
+    .message {
+        &--bg {
+            background-image: url(../img/message-bg-pc.png);
+            width: vwPC(1000px);
+            height: vwPC(343px);
+        }
+
+        &--click {
+            .dp-mid-center {
+                img{
+                    width: vwPC(68px);
+                    height: vwPC(58px);
+                }
+                span {
+                    font-size: vwPC(14px);
+                }
+            }
+        }
+    }
+
+    .about {
+
+        overflow: auto;
+
+        .about-top {
+            // padding: vwPC(40px) 0 vwPC(30px);
+            padding-top: 0;
+            padding-bottom: vwPC(45px);
+
+            .desc {
+                background: #f9f9f9;
+                font-size: vwPC(15px);
+                line-height: vwPC(30px);
+                padding: vwPC(15px) vwPC(40px) vwPC(20px);
+            }
+        }
+
+        .about-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            .about-department{
+                width: 50%;
+                float: left;
+
+                &:after {
+                    top: vwPC(23px);
+                    right: vwPC(23px);
+                    left: vwPC(23px);
+                    bottom: vwPC(23px);
+                }
+
+                .department-label {
+                    margin-bottom: vwPC(0px);
+
+                    >img {
+                        width: vwPC(200px);
+                        height: vwPC(200px);
+                    }
+
+                    .dp-mid-center {
+                        h3 {
+                            font-size: vwPC(20px);
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                .department-summary {
+                    width: vwPC(400px);
+
+                    h4 {
+                        font-size: vwPC(20px);
+                        margin: vwPC(10px) 0;
+                    }
+
+                    p {
+                        font-size: vwPC(13px);
+                    }
+                }
+
+                .arrow-down {
+                    img {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .work {
+        margin-bottom: vwPC(140px);
+
+        &--wrapper {
+            width: vwPC(1000px);
+            background: transparentize(#0040A0, .45);
+            display: flex;
+            justify-content: space-around;
+            padding: 0 vwPC(29.5px);
+            margin: auto;
+            @include clear();
+            box-shadow: 0 10px 20px transparentize(#040000, .7);
+        }
+
+        &--bg {
+            overflow: auto;
+            padding: vwPC(107px) 0 vwPC(94px);
+        }
+
+        &--entry {
+            background: 0;
+            width: (100%/3);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: vwPC(35px) vwPC(46.5px) vwPC(30px);
+            margin: auto;
+            margin-top: 0;
+            margin-bottom: vwPC(0px);
+            overflow: auto;
+
+            &--label {
+                width: 100%;
+                height: vwPC(219px);
+                float: none;
+                // margin: auto;
+                border-width: 3px;
+
+                span {
+                    font-size: vwPC(22px);
+                    margin-top: vwPC(20px);
+                }
+            }
+
+            &--txt {
+                overflow: hidden;
+                width: unset;
+                min-height: vwPC(126px);
+                padding: 0 vwPC(10px);
+                margin-bottom: vwPC(30px);
+
+                h3 {
+                    color: #add4c9;
+                    white-space: unset;
+                    font-size: vwPC(16px);
+                    line-height: vwPC(30px);
+                    text-align: center;
+                    margin: 0 vwPC(-10px);
+                    margin-top: vwPC(20px);
+                    margin-bottom: vwPC(5px);
+                }
+
+                p {
+                    font-size: vwPC(15px);
+                    color: #fff;
+                }
+
+            }
+
+            .read-entry {
+                font-size: vwPC(20px);
+                padding: vwPC(18px);
+                margin-top: auto;
+                &:hover {
+                    background: #00008f;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+//large screen
+@include lg() {
+    .message {
+        &--bg {
+            width: (1000px);
+            height: (343px);
+        }
+
+        &--click {
+            .dp-mid-center {
+                img{
+                    width: unset;
+                    height: unset;
+                }
+                span {
+                    font-size: (14px);
+                }
+            }
+        }
+    }
+
+    .about {
+        .about-top {
+            
+            padding-top: 0;
+            padding-bottom: (45px);
+
+            .desc {
+                font-size: (15px);
+                line-height: (30px);
+                padding: (15px) (40px) (20px);
+            }
+        }
+
+        .about-bottom {
+            .about-department{
+                &:after {
+                    top: (23px);
+                    right: (23px);
+                    left: (23px);
+                    bottom: (23px);
+                }
+
+                .department-label {
+                    margin-bottom: (0px);
+
+                    >img {
+                        width: (200px);
+                        height: (200px);
+                    }
+
+                    .dp-mid-center {
+                        h3 {
+                            font-size: (20px);
+                        }
+                    }
+                }
+
+                .department-summary {
+                    width: (400px);
+
+                    h4 {
+                        font-size: (20px);
+                        margin: (10px) 0;
+                    }
+
+                    p {
+                        font-size: (16px);
+                    }
+                }
+
+                .arrow-down {
+                    img {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .work {
+        margin-bottom: (140px);
+
+        &--wrapper {
+            width: (1000px);
+            padding: 0 (29.5px);
+        }
+
+        &--bg {
+            padding: (107px) 0 (94px);
+        }
+
+        &--entry {
+            padding: (35px) (46.5px) (30px);
+            margin-bottom: (0px);
+            &--label {
+                height: (219px);
+                border-width: 3px;
+
+                span {
+                    font-size: (22px);
+                    margin-top: (20px);
+                }
+            }
+
+            &--txt {
+                min-height: (126px);
+                padding: 0 (10px);
+                margin-bottom: (30px);
+
+                h3 {
+                    font-size: (16px);
+                    line-height: (30px);
+                    margin: 0 (-10px);
+                    margin-top: (20px);
+                    margin-bottom: (5px);
+                }
+
+                p {
+                    font-size: (15px);
+                }
+
+            }
+
+            .read-entry {
+                font-size: (20px);
+                padding: (18px);
+                border-radius: 100px;
+            }
+        }
+    }
+}

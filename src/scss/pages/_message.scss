@@ -1,0 +1,522 @@
+.focus {
+    background: url(../img/mes-focus-bg.png);
+    margin: vwSP(60px) 0;
+    .container{
+        @extend %wrapper3;
+    }
+    &--bg {
+        background: transparentize(#fff, .4);
+        padding: vwSP(60px) 0 vwSP(100px);
+        @include clear()
+    }
+
+    .director-box {
+        float: right;
+        text-align: center;
+        padding: 0 vwSP(65px);
+    }
+
+    &--name {
+        display: inline-block;
+        font-size: vwSP(20px);
+        padding: vwSP(10px) 0;
+        border-bottom: 2px solid #add4c9;
+        margin-bottom: vwSP(20px);
+
+        span {
+            font-size: vwSP(32px);
+            font-weight: bold;
+            vertical-align: baseline;
+        }
+    }
+
+    &--name2 {
+        font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+        font-size: vwSP(25px);
+        font-weight: 500;
+        color: #00008b;
+    }
+
+    &--txt {
+        h3 {
+            font-size: vwSP(36px);
+            font-weight: bold;
+            color: #393939;
+            line-height: 1.2;
+            padding: vwSP(20px) vwSP(30px);
+            border-bottom: 2px solid #add4c9;
+        }
+
+        p {
+            font-size: vwSP(26px);
+            padding: vwSP(20px) vwSP(30px);
+        }
+    }
+}
+
+.message-part {
+    .container{
+        @extend %wrapper3;
+    }
+    .message-post {
+        margin-bottom: vwSP(60px);
+        overflow: hidden;
+
+        &:nth-child(odd) {
+            .message-post-header {
+                .flag {
+                    float: left;
+                    padding-right: vwSP(60px);
+                    padding-left: vwSP(35px);
+                    border-top-right-radius: vwSP(200px);
+                    border-bottom-right-radius: vwSP(200px);
+
+                    &:before {
+                        left: 0;
+                    }
+
+                    &--number {
+                        order: 1;
+                        margin-left: auto;
+                        margin-left: vwSP(20px);
+                    }
+                }
+            }
+        }
+
+        &:nth-child(even) {
+            .message-post-header {
+                .flag {
+                    background-image: url('../img/mes-title-bg-2.png');
+                    float: right;
+                    padding-right: vwSP(35px);
+                    padding-left: vwSP(60px);
+                    border-top-left-radius: vwSP(200px);
+                    border-bottom-left-radius: vwSP(200px);
+
+                    &:before {
+                        right: 0;
+                    }
+
+                    &--number {
+                        // order: 1;
+                        margin-right: auto;
+                        margin-right: vwSP(20px);
+                    }
+                }
+            }
+        }
+    }
+
+    .message-post-header {
+        .flag {
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: #fff;
+            // width: vwSP(354px);
+            background: url(../img/mes-title-bg.png) center/100% 100% no-repeat;
+            padding: 0 vwSP(20px);
+
+            &:before {
+                content: '';
+                position: absolute;
+                display: block;
+                top: 0;
+                width: 2px;
+                height: 300px;
+                background: #5a8cc9;
+            }
+
+            &:after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+
+            &--number {
+                font-family:'roboto condensed', sans-serif;
+                display: inline-block;
+                font-size: vwSP(120px);
+            }
+
+            &--txt {
+                display: inline-block;
+
+                &--big {
+                    font-size: vwSP(50px);
+                    font-weight: bold;
+                    line-height: 1;
+                }
+
+                &--small {
+                    font-size: vwSP(26px);
+                    position: relative;
+                    display: block;
+                    color: #00008b;
+                    text-align: center;
+
+                    &:after {
+                        content: '';
+                        background: url(../img/mes-title-bird.png) center/contain no-repeat;
+                        display: inline-block;
+                        width: vwSP(43px);
+                        height: vwSP(34px);
+                        vertical-align: middle;
+                        margin: 0 vwSP(5px);
+                    }
+                }
+            }
+        }
+
+        h3 {
+            font-size: vwSP(36px);
+            font-weight: bold;
+            line-height: 1.2;
+            padding: vwSP(30px);
+            clear: both;
+        }
+    }
+
+    .message-post-txt {
+        clear: both;
+        font-size: vwSP(30px);
+        line-height: 1.8;
+        padding: 0 vwSP(30px);
+    }
+}
+
+
+
+//pc screen
+@include pc() {
+    .focus {
+        background: url(../img/mes-focus-bg-pc.png) center/cover no-repeat;
+        margin: vwPC(32px) 0 vwPC(130px);
+
+        &--bg {
+            background: transparentize(#fff, .4);
+            padding: vwPC(70px) vwPC(161px) vwPC(102px);
+            overflow: auto;
+        }
+
+        .director-box {
+            float: right;
+            // width: vwPC(500px);
+            padding: 0;
+        }
+
+        &--name {
+            font-size: vwPC(12px);
+            padding: vwPC(0px) 0;
+            margin-bottom: vwPC(10px);
+
+            span {
+                font-size: vwPC(20px);
+            }
+        }
+
+        &--name2 {
+            // font-family:'游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+            font-size: vwPC(16px);
+            color: #00008b;
+        }
+
+        &--txt {
+            overflow: hidden;
+            
+            h3 {
+                font-size: vwPC(24px);
+                max-width: vwPC(516px);
+                white-space: pre-line;
+                padding: vwPC(0px) vwPC(30px) vwPC(20px) 0;
+            }
+
+            p {
+                font-size: vwPC(16px);
+                line-height: vwPC(30px);
+                padding: vwPC(10px) vwPC(30px) vwPC(30px);
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+
+    .message-part {
+        .message-post {
+            min-height: vwPC(300px);
+            margin-bottom: vwPC(100px);
+
+            &:nth-child(odd) {
+                .message-post-header {
+                    .flag {
+
+                        padding-right: vwPC(37px);
+                        padding-left: vwPC(44px);
+                        margin-right: vwPC(27px);
+                        border-top-right-radius: vwPC(200px);
+                        border-bottom-right-radius: vwPC(200px);
+
+                        &:before {
+                            left: 0;
+                        }
+
+                        &--number {
+                            order: 1;
+                            margin-left: unset;
+                        }
+
+                        &--txt {
+                            margin-right: vwPC(45px);
+                            &--small {
+                                font-size: vwPC(14px);
+                                text-align: right;
+
+                                &:after {
+                                    top: vwPC(-10px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(even) {
+                .message-post-header {
+                    .flag {
+                        float: right;
+                        padding-right: vwPC(44px);
+                        padding-left: vwPC(37px);
+                        margin-left: vwPC(27px);
+                        border-top-left-radius: vwPC(200px);
+                        border-bottom-left-radius: vwPC(200px);
+
+                        &:before {
+                            right: 0;
+                        }
+
+                        &--number {
+                            margin-right: unset;
+                        }
+
+                        &--txt {
+                            margin-left: vwPC(45px);
+                            &--small {
+                                font-size: vwPC(14px);
+                                text-align: left;
+
+                                &:after {
+                                    top: vwPC(-15px);
+                                    right: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .message-post-header {
+            .flag {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                color: #fff;
+                width: vwPC(290px);
+                background: url(../img/mes-title-bg.png) center/100% no-repeat;
+                padding: vwPC(20px);
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    top: 0;
+                    width: 2px;
+                    height: 10000px;
+                    background: #5a8cc9;
+                }
+
+                &:after {
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+
+                &--number {
+                    display: inline-block;
+                    font-size: vwPC(68px);
+                }
+
+                &--txt {
+                    display: inline-block;
+
+                    &--big {
+                        // font-family:'arial', sans-serif;
+                        font-size: vwPC(32px);
+                    }
+
+                    &--small {
+                        font-size: vwPC(20px);
+                        position: relative;
+                        display: block;
+                        color: #00008b;
+                        text-align: center;
+
+                        &:after {
+                            width: vwPC(30px);
+                            height: vwPC(24px);
+                            position: absolute;
+                            margin: 0 vwPC(10px);
+                        }
+                    }
+                }
+            }
+
+            h3 {
+                font-size: vwPC(34px);
+                font-weight: bold;
+                padding: vwPC(20px);
+                clear: none;
+            }
+        }
+
+        .message-post-txt {
+            font-size: vwPC(18px);
+            line-height: unset;
+            padding: 0 vwPC(40px);
+            padding-top: vwPC(40px);
+        }
+    }
+}
+
+//large screen
+@include lg() {
+    .focus {
+        margin: (32px) 0 (130px);
+
+        &--bg {
+            padding: (70px) (161px) (102px);
+        }
+
+        &--name {
+            font-size: (12px);
+            padding: (0px) 0;
+            margin-bottom: (10px);
+
+            span {
+                font-size: (20px);
+            }
+        }
+
+        &--name2 {
+            font-size: (16px);
+        }
+
+        &--txt {
+            
+            h3 {
+                font-size: (24px);
+                max-width: (516px);
+                padding: (0px) (30px) (20px) 0;
+            }
+
+            p {
+                font-size: (16px);
+                line-height: 30px;
+                padding: (10px) (30px) (30px);
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+
+    .message-part {
+        .message-post {
+            min-height: (300px);
+            margin-bottom: (100px);
+
+            &:nth-child(odd) {
+                .message-post-header {
+                    .flag {
+
+                        padding-right: (37px);
+                        padding-left: (35px);
+                        margin-right: (27px);
+                        border-top-right-radius: (200px);
+                        border-bottom-right-radius: (200px);
+
+                        &--txt {
+                            margin-right: 45px;
+                            &--small {
+                                font-size: (14px);
+                                &:after {
+                                    top: (-10px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(even) {
+                .message-post-header {
+                    .flag {
+                        padding-right: (35px);
+                        padding-left: (37px);
+                        margin-left: (27px);
+                        border-top-left-radius: (200px);
+                        border-bottom-left-radius: (200px);
+
+                        &--txt {
+                            margin-left: 45px;
+                            &--small {
+                                font-size: (14px);
+                                &:after {
+                                    top: (-15px);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .message-post-header {
+            .flag {
+                width: (290px);
+                padding: (20px);
+
+                &--number {
+                    font-size: (68px);
+                }
+
+                &--txt {
+                    &--big {
+                        font-size: (32px);
+                    }
+
+                    &--small {
+                        font-size: (20px);
+                        &:after {
+                            width: (30px);
+                            height: (24px);
+                            margin: 0 (5px);
+                        }
+                    }
+                }
+            }
+
+            h3 {
+                font-size: (34px);
+                padding: (20px);
+            }
+        }
+
+        .message-post-txt {
+            font-size: (18px);
+            padding: 0 (40px);
+            padding-top: (40px);
+        }
+    }
+}

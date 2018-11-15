@@ -1,0 +1,671 @@
+body {
+    max-width: 1920px;
+    margin: auto;
+}
+
+%title {
+    font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+    font-size: vwSP(32);
+    font-weight: 900;
+    line-height: 1;
+    color: #5A8CC9;
+    text-transform: uppercase;
+    margin-bottom: vwSP(0px);
+}
+
+%subtitle {
+    color: #002040;
+    font-size: vwSP(24);
+    font-weight: 700;
+    text-decoration: none;
+    display: block;
+    margin: 0;
+    margin-top: vwSP(10px);
+}
+
+%title2 {
+    font-size: vwSP(32px);
+    line-height: vwSP(43px);
+    font-weight: bold;
+    color: #00008f;
+}
+
+%subtitle2 {
+    font-family: 'Aorora Mincho', '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+    font-size: vwSP(24px);
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+
+    &.bird {
+        &-l:before {
+            content: '';
+            position: absolute;
+            top: vwSP(7px);
+            right: calc(100% + 0px);
+            width: vwSP(36px);
+            height: vwSP(35px);
+            background: url(../img/pp-bird-l.png) no-repeat center/contain;
+
+        }
+
+        &-r:after {
+            content: '';
+            position: absolute;
+            top: vwSP(-5px);
+            left: calc(100% + 4px);
+            width: vwSP(36px);
+            height: vwSP(39px);
+            background: url(../img/pp-bird.png) no-repeat center/contain;
+        }
+    }
+}
+
+.title {
+    @extend %title;
+}
+
+.subtitle {
+    @extend %subtitle;
+}
+
+.title2 {
+    @extend %title2;
+}
+
+.subtitle2 {
+    @extend %subtitle2;
+}
+
+.heading {
+    padding: vwSP(60) 0 vwSP(40px);
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+%wrapper1 {
+    width: vwSP(608);
+}
+
+%wrapper2 {
+    width: vwSP(635);
+}
+
+%wrapper3 {
+    width: vwSP(630px);
+}
+
+.title-bg {
+    // background: url(../img/title-bg.png) no-repeat;
+    // background-position: 61.2% 68%;
+    // background-size: contain;
+    position: relative;
+    padding: vwSP(75px) 0 vwSP(81px);
+    margin-bottom: vwSP(30px);
+
+    &:after {
+        content: '';
+        background: url(../img/title-bg.png) no-repeat center/contain;
+        position: absolute;
+        z-index: -1;
+        top: vwSP(89px);
+        left: vwSP(337px);
+        width: vwSP(200px);
+        height: vwSP(100px);
+    }
+}
+
+.read-more {
+    font-size: vwSP(28);
+    color: #fff;
+    display: inline-block;
+    background: #002040;
+    text-align: center;
+    border-radius: vwSP(10);
+    text-decoration: none;
+    padding: vwSP(26) vwSP(71) vwSP(24);
+    margin: vwSP(42) 0 vwPC(51);
+
+    &:hover {
+        @include brightness(1.2)
+    }
+}
+
+.block-page-name {
+    display: flex;
+    position: relative;
+    height: vwSP(300px);
+    overflow: hidden;
+
+    .half {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        background-image: url('../img/block-page-name-bg-pc.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    .page-name-jpn {
+        position: relative;
+        display: inline-block;
+        font-family: 'Aozora Mincho', '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+        font-size: vwSP(45px);
+        color: #fff;
+        font-weight: bold;
+        text-shadow: 0 0 25px transparentize(#000, .6);
+
+        &:after {
+            content: '';
+            background: url('../img/page-name-after.png') center/contain no-repeat;
+            width: vwSP(76px);
+            height: vwSP(49px);
+            position: absolute;
+            top: vwSP(-26px);
+            right: vwSP(-63px);
+        }
+    }
+
+    .page-name {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 0;
+        left: 50%;
+        @include translate(-50%, 0);
+        width: vwSP(320px);
+        height: vwSP(169px);
+        background: transparentize(#fff, .1);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+
+        h2 {
+            position: relative;
+            font-size: vwSP(24px);
+            color: #00008f;
+            text-align: center;
+            font-weight: bold;
+
+            &:after {
+                content: '';
+                position: relative;
+                display: block;
+                // width: 90%;
+                width: vwSP(100px);
+                top: vwSP(5px);
+                left: 50%;
+                @include translate(-50%);
+                border-bottom: 2px solid #add4c9;
+            }
+        }
+    }
+}
+
+.pagination {
+    position: relative;
+    display: inline-flex;
+    background: url(../img/btn-bg.png) center/100% 100%;
+    margin: vwSP(40px) 0;
+    border-radius: vwSP(100px);
+    overflow: hidden;
+    clear: both;
+    box-shadow: 0 5px 10px transparentize(#000, .8);
+    min-width: vwSP(720px);
+    max-width: 100vw;
+    left: 50%;
+    @include translate(-50%);
+
+    .entry {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        height: vwSP(118px);
+        padding: vwSP(33px);
+
+        &:hover {
+            background: url(../img/btn-bg-hover.png) center/100% 100%;
+        }
+
+        .eng {
+            font-family: 'roboto', sans-serif;
+            font-size: vwSP(50px);
+            font-weight: bold;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #fff;
+            margin-left: auto;
+        }
+
+        .fa {
+            font-size: vwSP(45px);
+            color: #fff;
+            margin-left: auto;
+        }
+    }
+
+    .prev,
+    .next {
+        display: flex;
+        align-items: center;
+        width: 50%;
+        // overflow: hidden;
+        height: vwSP(120px);
+        padding: vwSP(20px);
+
+        &:hover {
+            background: url(../img/btn-bg-hover.png) center/100% 100%;
+        }
+
+        .fa {
+            color: #fff;
+            font-size: vwSP(50px);
+        }
+
+        .eng {
+            font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+            font-size: vwSP(38px);
+            color: #fff;
+            padding: 0 vwSP(10px);
+        }
+
+        .jpn {
+            font-family: '游明朝', YuMincho, 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'ＭＳ Ｐ明朝', 'ＭＳ 明朝', serif;
+            font-size: vwSP(22px);
+            font-weight: bold;
+            white-space: nowrap;
+            color: #add4c9;
+            position: relative;
+            padding: 0 vwSP(10px);
+
+            &:after {
+                content: '';
+                position: absolute;
+                display: block;
+                background: url('../img/pagi-icon.png') center/100% 100% no-repeat;
+                width: vwSP(8px);
+                height: vwSP(8px);
+                // min-width: 4px;
+                // min-height: 4px;
+                top: 50%;
+                @include translate(0, -50%);
+            }
+        }
+    }
+
+    .prev {
+        justify-content: flex-end;
+        border-right: 2px solid #9bbadf;
+
+        .jpn {
+            &:after {
+                right: vwSP(-5px);
+            }
+        }
+
+        .fa {
+            margin-right: auto;
+        }
+    }
+
+    .next {
+        border-left: 2px solid #5781bf;
+
+        .jpn {
+            &:after {
+                left: vwSP(-5px);
+            }
+        }
+
+        .fa {
+            margin-left: auto;
+        }
+    }
+}
+
+/*
+*        pc
+*/
+@include pc() {
+    .title {
+        font-family: 'arial', sans-serif;
+        font-weight: normal;
+        font-size: vwPC(24px);
+    }
+
+    .subtitle {
+        font-size: vwPC(13px);
+        margin-top: vwPC(10px);
+    }
+
+    .title2 {
+        font-size: vwPC(35px);
+        line-height: vwPC(50px);
+    }
+
+    .subtitle2 {
+        font-size: vwPC(20px);
+
+        &.bird {
+            &-l:before {
+                top: vwPC(7px);
+                right: calc(100% + 7px);
+                width: vwPC(36px);
+                height: vwPC(39px);
+            }
+
+            &-r:after {
+                top: vwPC(-5px);
+                left: calc(100% + 10px);
+                width: vwPC(36px);
+                height: vwPC(35px);
+            }
+        }
+    }
+
+    .heading {
+        padding: vwPC(50px) 0 vwPC(40px);
+    }
+
+    .title-bg {
+        padding: vwPC(60) 0;
+        margin-bottom: 0;
+
+        &:after {
+            top: vwPC(70px);
+            left: vwPC(695px);
+            width: vwPC(137px);
+            height: vwPC(68px);
+        }
+    }
+
+    %wrapper1 {
+        width: vwPC(800px);
+    }
+
+    %wrapper2 {
+        width: vwPC(1002px);
+    }
+
+    %wrapper3 {
+        width: vwPC(1000px);
+    }
+
+    .block-page-name {
+        height: vwPC(200px);
+        border-bottom: 2px solid #00008f;
+
+        .page-name-jpn {
+            font-size: vwPC(45px);
+
+            &:after {
+                width: vwPC(66px);
+                height: vwPC(49px);
+                top: vwPC(-20px);
+                right: vwPC(-70px);
+            }
+        }
+
+        .page-name {
+            width: vwPC(234px);
+            height: vwPC(121px);
+
+            h2 {
+                font-size: vwPC(18px);
+                margin-top: vwPC(20px);
+
+                &:after {
+                    top: vwPC(5px);
+                    width: vwPC(80px);
+                }
+            }
+        }
+    }
+
+    .pagination {
+        width: vwPC(700px);
+        margin: auto;
+        border-radius: vwPC(100px);
+        min-width: vwPC(696px);
+
+        .entry {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            height: vwPC(80px);
+            padding: vwPC(33px);
+
+            .eng {
+                // font-size: vwPC(22px);
+                font-weight: bold;
+                text-transform: uppercase;
+                color: #fff;
+                margin-left: auto;
+            }
+
+            .fa {
+                font-size: vwPC(45px);
+                color: #fff;
+                margin-left: auto;
+            }
+        }
+
+        .prev,
+        .next,
+            {
+            height: vwPC(80px);
+            padding: vwPC(20px);
+
+            .fa {
+                font-size: vwPC(50px);
+            }
+
+            .eng {
+                font-size: vwPC(22px);
+                padding: 0 vwPC(10px);
+            }
+
+            .jpn {
+                font-size: vwPC(16px);
+                color: #add4c9;
+                padding: 0 vwPC(10px);
+
+                &:after {
+                    width: vwPC(8px);
+                    height: vwPC(8px);
+                }
+            }
+        }
+
+        .prev {
+            justify-content: flex-end;
+            border-right: 2px solid #9bbadf;
+
+            .fa {
+                margin-right: auto;
+            }
+
+            .jpn {
+                &:after {
+                    right: vwPC(-5px);
+                }
+            }
+        }
+
+        .next {
+            border-left: 2px solid #5781bf;
+
+            .jpn {
+                &:after {
+                    left: vwPC(-5px);
+                }
+            }
+
+            .fa {
+                margin-left: auto;
+            }
+        }
+    }
+
+}
+
+/*
+*        lg
+*/
+@include lg() {
+    .read-more {
+        font-size: 18px;
+        padding: 22px 76px 19px;
+        border-radius: 5px;
+    }
+
+    .title {
+        font-size: 25px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
+
+    .title2 {
+        font-size: (35px);
+        line-height: (50px);
+    }
+
+    .subtitle2 {
+        font-size: (20px);
+
+        &.bird {
+            &-l:before {
+                top: (7px);
+                right: calc(100% + 7px);
+                width: (36px);
+                height: (39px);
+            }
+
+            &-r:after {
+                top: (-5px);
+                left: calc(100% + 10px);
+                width: (36px);
+                height: (35px);
+            }
+        }
+    }
+
+    .heading {
+        padding: (50px) 0 (40px);
+    }
+
+    .title-bg {
+        padding: (60px) 0;
+        margin-bottom: 0;
+
+        &:after {
+            top: (70px);
+            left: 48.5%;
+            width: (137px);
+            height: (68px);
+        }
+    }
+
+    %wrapper1 {
+        width: (800px);
+    }
+
+    %wrapper3 {
+        width: 1000px;
+    }
+
+    %wrapper2 {
+        width: (1002px);
+    }
+
+    .block-page-name {
+        height: (200px);
+        border-bottom: 2px solid #00008f;
+
+        .page-name-jpn {
+            font-size: (45px);
+
+            &:after {
+                width: (66px);
+                height: (49px);
+                top: (-20px);
+                right: (-70px);
+            }
+        }
+
+        .page-name {
+            width: (234px);
+            height: (121px);
+
+            h2 {
+                font-size: (18px);
+                margin-top: (20px);
+
+                &:after {
+                    top: (5px);
+                    width: 80px;
+                }
+            }
+        }
+    }
+
+    .pagination {
+        width: (700px);
+        min-width: (696px);
+        border-radius: (100px);
+
+        .entry {
+            height: (80px);
+            padding: (33px);
+
+            .fa {
+                font-size: (45px);
+            }
+        }
+
+        .prev,
+        .next,
+            {
+            height: (80px);
+            padding: (20px);
+
+            .fa {
+                font-size: (50px);
+            }
+
+            .eng {
+                font-size: (22px);
+                padding: 0 (10px);
+            }
+
+            .jpn {
+                font-size: (16px);
+                padding: 0 (10px);
+
+                &:after {
+                    width: (8px);
+                    height: (8px);
+                }
+            }
+        }
+    }
+}

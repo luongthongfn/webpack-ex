@@ -1,0 +1,478 @@
+#go-top,
+.gotop-sp {
+    font-size: vwPC(145);
+    // display: inline-block;
+    display: none;
+    z-index: 9;
+    color: #fff;
+    width: vwPC(180);
+    height: vwPC(180);
+    line-height: 30px;
+    text-align: center;
+    background: #93BAE1;
+    background-size: 300% auto;
+    position: fixed;
+    bottom: vwPC(107);
+    right: vwPC(220);
+    cursor: pointer;
+    border-radius: 0;
+    border: 2px solid transparent;
+}
+
+.gotop-sp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #5A8CC9;
+    position: absolute;
+    bottom: 100%;
+    right: vwSP(61px);
+    width: vwSP(75px);
+    height: vwSP(75px);
+
+    .fa {
+        font-size: vwSP(40px);
+    }
+}
+
+footer {
+    position: relative;
+    text-align: center;
+
+    #go-top {
+        position: absolute;
+        z-index: 0;
+        bottom: 100%;
+    }
+}
+
+.footer2 {
+    .ft-top{
+        background: #5A8CC9;
+    }
+    .ft-bot {
+        font-size: 0;
+        padding-top: vwSP(60px);
+        background-image: url(../img/ft2-bg.png);
+        background-size: cover;
+
+        .ft-logo {
+            margin-top: vwSP(43px);
+        }
+
+        .copy-r {
+            background: #5A8CC9;
+            padding-bottom: vwSP(182px);
+        }
+    }
+}
+
+.ft-logo-brand {
+    position: relative;
+    // background: #5A8CC9;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: vwSP(169px);
+
+    .ft-brand {
+        font-size: vwSP(24px);
+        // font-weight: bold;
+
+        img {
+            vertical-align: middle;
+            width: vwSP(100px);
+            margin-right: vwSP(27.3px);
+        }
+
+        span {
+            position: relative;
+            top: vwSP(10px);
+        }
+    }
+
+    .go-top {
+        font-family: 'Roboto Condensed', sans-serif;
+        position: absolute;
+        top: vwSP(25px);
+        right: vwSP(28.8);
+        font-size: vwSP(19.77px);
+
+        img {
+            width: vwSP(35.55px);
+            height: vwSP(59.3px);
+        }
+    }
+}
+
+.ft-top {
+    background: #358dcc;
+}
+
+.ft-menu {
+    li {
+        a {
+            display: block;
+            font-size: vwSP(30);
+            color: #fff;
+            padding: vwSP(26px) 0;
+
+            &:hover {
+                color: #d8d8d8;
+            }
+        }
+        .go-top{
+            width: unset;
+            height: unset;
+            right: unset;
+        }
+    }
+}
+
+
+.ft-bot {
+    background: url(../img/cloud-bg.png);
+    min-height: vwSP(540px);
+    padding-top: vwSP(30px);
+
+    .ft-contact {
+        margin-bottom: vwSP(43px);
+
+        a {
+            color: #fff;
+            font-size: vwSP(30px);
+        }
+    }
+
+    .ft-logo {
+        img {
+            margin-right: vwSP(-37px);
+        }
+    }
+}
+
+.copy-r {
+    font-family: 'roboto condensed', sans-serif;
+    font-size: vwSP(20);
+    color: #fff;
+    text-align: center;
+    background: #358dcc;
+    padding-top: vwSP(63px);
+    padding-bottom: vwSP(165px);
+    margin-top: vwSP(68px);
+
+    a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+            color: #ccc;
+        }
+    }
+}
+
+@include pc() {
+
+    #go-top,
+    .go-top {
+        font-size: vwPC(50);
+        width: vwPC(60);
+        height: vwPC(60);
+    }
+
+    footer {
+        text-align: left;
+    }
+
+    .footer2 {
+        .go-top {
+            right: vwPC(220px);
+
+            .fa {
+                font-size: vwPC(30px);
+            }
+        }
+
+        .ft-top {
+            background-color: #5a8cc9;
+            flex-basis: 63.9%;
+
+            .ft-logo-brand {
+                margin-bottom: vwPC(10px);
+                .show-pc {
+                    font-size: vwPC(16px);
+                }
+                .ft-brand {
+                    margin-bottom: vwPC(10px);
+
+                    img {
+                        width: vwPC(93px);
+                        height: vwPC(76px);
+                        margin-right: 15px;
+                    }
+                }
+            }
+        }
+
+        .floatright-pc {
+            width: vwPC(600px);
+        }
+
+        .ft-menu {
+            text-align: center;
+
+            // border-color: #fff;
+            li {
+                a {
+                    font-weight: bold;
+                    padding: vwPC(13px) vwPC(50px) vwPC(13px);
+                }
+            }
+        }
+
+        .ft-bot {
+            padding-left: 0;
+            padding-top: 0;
+            .ft-logo {
+                font-size: 0;
+                margin-top: vwPC(221px);
+
+                img {
+                    width: vwPC(233px);
+                    height: vwPC(83px);
+                }
+            }
+        }
+    }
+
+    .ft-wrapper {
+        position: relative;
+        display: flex;
+    }
+
+    .floatright-pc {
+        float: right;
+        width: vwPC(640px);
+    }
+
+    .ft-top {
+        flex: 0 0 65.27%;
+        height: unset;
+        padding-top: vwPC(85px);
+
+        .ft-logo-brand {
+            height: unset;
+            display: block;
+            padding-left: vwPC(10px);
+            margin-bottom: vwPC(27px);
+            
+            .ft-brand {
+                display: block;
+                margin-bottom: -13px;
+
+                img {
+                    width: vwPC(70px);
+                    height: vwPC(60px);
+                    margin-right: 0px;
+                    vertical-align: sub;
+                }
+
+                span {
+                    font-size: vwPC(20px);
+                    top: 0;
+                }
+            }
+        }
+    }
+
+    .ft-menu {
+        font-size: 0;
+        border-top: 1px solid transparentize(#fff, .8);
+        border-bottom: 1px solid transparentize(#fff, .8);
+        margin-bottom: vwPC(217px);
+
+        li {
+            display: inline-block;
+
+            a {
+                font-size: vwPC(16px);
+                padding: vwPC(16px) vwPC(28px) vwPC(14);
+            }
+        }
+    }
+
+    .ft-bot {
+        background-size: 100% 100%;
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        min-height: vwPC(60px);
+        padding: 0;
+        padding-left: vwPC(20px);
+
+        .ft-logo {
+            margin-top: auto;
+            margin-bottom: vwPC(-55px);
+        }
+    }
+
+    .copy-r {
+        background: 0;
+        font-size: vwPC(12px);
+        text-align: left;
+        padding: 0;
+        margin-top: auto;
+        margin-bottom: vwPC(40px);
+    }
+}
+
+@include lg() {
+
+    #go-top,
+    .go-top {
+        font-size: (50px);
+        width: (60px);
+        height: (60px);
+    }
+
+    .footer2 {
+        .go-top {
+            right: (220px);
+
+            .fa {
+                font-size: (30px);
+            }
+        }
+
+        .ft-top {
+            background-color: #5a8cc9;
+            flex-basis: 63.9%;
+            .ft-logo-brand {
+                
+                margin-bottom: 10px;
+
+                .show-pc {
+                    font-size: (16px);
+                }
+
+                .ft-brand {
+                    font-size: 0;
+                    margin-bottom: 10px;
+
+                    img {
+                        width: 93px;
+                        height: 76px;
+                    }
+                }
+            }
+        }
+
+        .floatright-pc {
+            width: 600px;
+        }
+
+        .ft-menu {
+            text-align: center;
+
+            // border-color: #fff;
+            li {
+                a {
+                    font-weight: bold;
+                    padding: (13px) (50px) (13px);
+                }
+            }
+        }
+
+        .ft-bot {
+            .ft-logo {
+                margin-top: (218px);
+
+                img {
+                    width: (233px);
+                    height: (83px);
+                }
+            }
+        }
+    }
+
+    .ft-wrapper {
+        position: relative;
+        display: flex;
+    }
+
+    .floatright-pc {
+        float: right;
+        width: (640px);
+    }
+
+    .ft-top {
+        flex: 0 0 65.27%;
+        height: unset;
+        padding-top: (85px);
+
+        .ft-logo-brand {
+            height: unset;
+            display: block;
+            padding-left: (10px);
+            margin-bottom: (27px);
+
+            .ft-brand {
+                display: block;
+                margin-bottom: -13px;
+
+                img {
+                    width: (70px);
+                    height: (60px);
+                    margin-right: 0px;
+                    vertical-align: sub;
+                }
+
+                span {
+                    font-size: (20px);
+                }
+            }
+        }
+    }
+
+    .ft-menu {
+        font-size: 0;
+        border-top: 1px solid transparentize(#fff, .8);
+        border-bottom: 1px solid transparentize(#fff, .8);
+        margin-bottom: (217px);
+
+        li {
+            display: inline-block;
+
+            a {
+                font-size: (16px);
+                padding: (16px) (28px) (14px);
+            }
+        }
+    }
+
+    .ft-logo {
+        font-size: 0;
+    }
+
+    .ft-bot {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        min-height: (60px);
+        padding: 0;
+        padding-left: (20px);
+
+        .ft-logo {
+            margin-top: auto;
+        }
+    }
+
+    .copy-r {
+        font-size: (12px);
+        text-align: left;
+        margin-top: auto;
+        margin-bottom: (40px);
+    }
+}

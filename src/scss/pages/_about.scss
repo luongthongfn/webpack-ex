@@ -1,0 +1,126 @@
+.about-page{
+    background: url(../img/mes-focus-bg.png);
+    margin-top: vwSP(70px);
+    margin-bottom: vwPC(110px);
+    .container{
+        @extend %wrapper3;
+    }
+    &--bg{
+        background: rgba(255,255,255,0.6);
+        padding: vwSP(60px) 0 ;
+    }
+    &--arc{
+        border-bottom: 2px solid #00008b;
+        margin-bottom: vwSP(60px);
+        &:last-child{
+           border-bottom: 0;
+        }
+    }
+    .has-image {
+        font-size: 0;
+        text-align: center;
+        margin: auto;
+        img{
+            width: vwSP(400px);
+        }
+    }
+    &--txt{
+        color: #393939;
+        padding: vwSP(45px) vwSP(30px) vwSP(50px);
+        h3{
+            font-size: vwSP(36px);
+            line-height: 1.2;
+            margin-bottom: vwSP(20px);
+        }
+        p{
+            font-size: vwSP(26px);
+            line-height: vwSP(36px);
+        }
+    }
+}
+//pc screen
+@include pc(){
+    .about-page{
+        background: url(../img/about-page-bg-pc.png);
+        margin-top: vwPC(30px);
+        &--bg{
+            background: rgba(255,255,255,0.6);
+            padding: vwPC(122px) vwPC(120px) vwPC(100px);
+        }
+        &--arc{
+            padding-bottom: vwPC(30px);
+            margin-bottom: vwPC(48px);
+            clear: both;
+            @include clear();
+            &:last-child{
+               border-bottom: 0;
+               margin-bottom: 0;
+            }
+            &:nth-child(even){
+                .has-image{
+                    float: right;
+                    img{
+                        margin-left: vwPC(50px);
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+        .has-image {
+            float: left;
+            img {
+                width: vwPC(222px);
+                margin-right: vwPC(50px);
+            }
+        }
+        &--txt{
+            overflow: hidden;
+            padding: vwPC(0px) vwPC(0px);
+            h3{
+                font-size: vwPC(22px);
+                line-height: vwPC(32px);
+                margin-bottom: vwPC(15px);
+            }
+            p{
+                font-size: vwPC(14px);
+                line-height: vwPC(30px);
+            }
+        }
+    }
+}
+
+//large screen
+@include lg(){
+    .about-page{
+        margin-top: (30px);
+        &--bg{
+            padding: (100px) (120px) ;
+        }
+        &--arc{
+            padding-bottom: (30px);
+            margin-bottom: (48px);
+            @include clear();
+            &:last-child{
+               border-bottom: 0;
+            }
+        }
+        .has-image {
+            img {
+                width: (222px);
+                margin-right: (50px);
+            }
+        }
+        &--txt{
+            padding: (0px) (0px);
+            h3{
+                font-size: (22px);
+                line-height: (32px);
+                margin-bottom: (15px);
+            }
+            p{
+                font-size: (14px);
+                line-height: (30px);
+            }
+        }
+    }
+}

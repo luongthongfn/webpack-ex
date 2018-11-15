@@ -1,0 +1,289 @@
+.recruit-page {
+    margin-top: vwSP(94px);
+    margin-bottom: vwSP(80px);
+
+    .container {
+        @extend %wrapper3;
+    }
+
+    .recruit-tab {
+        ul {
+            font-family: 'Hiragino Kaku Gothic Pro', '游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+            font-size: 0;
+            border-bottom: 2px solid #4c8cce;
+            margin-bottom: vwSP(51px);
+
+            li {
+                display: inline-block;
+                vertical-align: bottom;
+                margin-right: vwSP(10px);
+
+                &.active {
+                    a {
+                        font-weight: bold;
+                        color: #fff;
+                        background: #5a8cc9;
+                        height: vwSP(78px);
+                    }
+                }
+
+                a {
+                    font-size: vwSP(20px);
+                    // font-weight: bold;
+                    color: #4c8cce;
+                    display: flex;
+                    align-items: center;
+                    width: vwSP(200px);
+                    height: vwSP(72px);
+                    padding: vwSP(10px) vwSP(20px);
+                    padding-right: vwSP(10px);
+                    padding-right: 0;
+                    border: 1px solid #E4E6E8;
+                    border-bottom: 0;
+                    border-top-left-radius: vwSP(10px);
+                    border-top-right-radius: vwSP(10px);
+
+                    img {
+                        width: vwSP(30px);
+                        // height: vwSP(30px);
+                        margin-right: vwSP(10px);
+                        flex-shrink: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .table-layout {
+        font-family: 'Hiragino Kaku Gothic Pro', '游ゴシック', YuGothic, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+        color: #707070;
+        border-width: 2px;
+
+        .thead {
+            font-size: vwSP(36px);
+            color: #4c8cce;
+            font-weight: bold;
+            background: #f1f2f3;
+            padding: vwSP(12px) vwSP(15px) vwSP(8px);
+
+            border-width: 2px;
+            margin-top: -2px;
+            margin-left: -2px;
+        }
+
+        .trow {
+            flex-direction: column;
+        }
+
+        .tdata {
+            font-size: vwSP(26px);
+            padding: vwSP(10px);
+
+            border-width: 2px;
+            margin-top: -2px;
+            margin-left: -2px;
+        }
+
+        .tkey {
+            font-size: vwSP(28px);
+            // line-height: 1;
+            padding-left: vwSP(15px);
+            border-left: 4px solid #4c8cce;
+            margin: vwSP(5px);
+            margin-left: vwSP(7px);
+        }
+
+        .tvalue {
+            line-height: vwSP(32px);
+            white-space: pre-line;
+            padding: vwSP(20px);
+            padding-left: vwSP(30px);
+            &.text-center-sp{
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
+        }
+    }
+}
+
+.pagination.in-recruit {
+    min-width: 84%;
+}
+
+//pc screen
+@include pc() {
+    .recruit-page {
+        margin-top: vwPC(94px);
+        margin-bottom: vwPC(80px);
+
+        .recruit-tab {
+            ul {
+                margin-bottom: vwPC(51px);
+
+                li {
+                    // min-width: vwPC(220px);
+                    margin-right: vwPC(2px);
+
+                    &.active {
+                        a {
+                            height: vwPC(69px);
+                        }
+                    }
+
+                    a {
+                        font-size: vwPC(15px);
+                        width: vwPC(220px);
+                        height: vwPC(63px);
+                        // height: unset;
+                        padding: vwPC(10px) vwPC(20px);
+                        padding-right: vwPC(0px);
+                        border-top-left-radius: vwPC(10px);
+                        border-top-right-radius: vwPC(10px);
+
+                        img {
+                            width: vwPC(16px);
+                            margin-right: vwPC(10px);
+                        }
+                    }
+                }
+            }
+        }
+
+        .table-layout {
+            
+            .thead {
+                font-size: vwPC(18px);
+                padding: vwPC(9px) vwPC(17px);
+            }
+
+            .trow {
+                flex-direction: row;
+            }
+
+            .tdata {
+                font-size: vwPC(16px);
+                min-height: vwPC(80px);
+                padding: vwPC(7px) vwPC(13px);
+
+                &:first-child {
+                    flex: 1 0 vwPC(248px);
+                }
+                &:nth-child(2){
+                    .tvalue{
+                        padding: vwPC(15px) vwPC(5px);
+                    }
+                }
+            }
+
+            .tkey {
+                font-size: vwPC(14px);
+                padding-left: vwPC(7px);
+                margin: vwPC(15px) vwPC(5px);
+            }
+
+            .tvalue {
+                font-size: vwPC(14px);
+                line-height: vwPC(24px);
+                padding: vwPC(5px);
+                
+            }
+        }
+    }
+
+    .pagination.in-recruit {
+        min-width: 38.5%;
+        width: auto;
+        margin: auto;
+        .entry{
+            .eng{
+                font-family:'roboto condensed', sans-serif;
+                font-size: vwPC(32px);
+                letter-spacing: unset;
+            }
+        }
+    }
+}
+
+//large screen
+@include lg() {
+    .recruit-page {
+        margin-top: (94px);
+        margin-bottom: (80px);
+
+        .recruit-tab {
+            ul {
+                margin-bottom: (51px);
+
+                li {
+                    margin-right: (2px);
+
+                    &.active {
+                        a {
+                            height: (69px);
+                        }
+                    }
+
+                    a {
+                        font-size: (15px);
+                        width: (220px);
+                        height: (63px);
+                        padding: (10px) (20px);
+                        padding-right: (0px);
+                        border-top-left-radius: (10px);
+                        border-top-right-radius: (10px);
+
+                        img {
+                            width: (16px);
+                            margin-right: (10px);
+                        }
+                    }
+                }
+            }
+        }
+
+        .table-layout {
+
+            .thead {
+                font-size: (18px);
+                padding: (9px) (17px);
+            }
+
+            .tdata {
+                font-size: (16px);
+                min-height: (80px);
+                padding: (7px) (13px);
+
+                &:first-child {
+                    flex: 1 0 (248px);
+                }
+                &:nth-child(2){
+                    .tvalue{
+                        padding: 15px 5px;
+                    }
+                }
+            }
+
+            .tkey {
+                font-size: (14px);
+                padding-left: (7px);
+                margin: (15px) (5px);
+            }
+
+            .tvalue {
+                font-size: 14px;
+                line-height: (24px);
+                padding: (5px);
+                
+            }
+        }
+    }
+
+    .pagination.in-recruit {
+        min-width: 38.5%;
+        .entry{
+            .eng{
+                font-size: (32px);
+            }
+        }
+    }
+}
