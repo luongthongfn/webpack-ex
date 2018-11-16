@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -39,12 +40,24 @@ files.forEach(file => {
     );
   }
 });
+//copy plugin
+const CopyPlugin = process.env.NODE_ENV == 'production' ?
+  new CopyWebpackPlugin([{
+    from: srcPath.img.src,
+    to: srcPath.img.dest
+  }, ], { /* options */ }) :
+  {}
 
 module.exports = {
-  entry: './src/index.js',
+  entry: [
+    './src/index.js'
+  ],
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "js/bundle.js",
+    filename: "js/custom.bundle.js",
+  },
+  externals: {
+    jquery: 'jQuery'
   },
   module: {
     rules: [{
@@ -62,7 +75,8 @@ module.exports = {
         use: [{
             loader: 'file-loader',
             options: {
-              name: 'img/[name].[ext]',
+              name: '[name].[ext]',
+              outputPath: 'imgs/',
               context: ''
             }
           },
@@ -94,16 +108,11 @@ module.exports = {
               importer: globImporter()
             }
           }
-          // "sass-bulk-import-loader",
         ]
       },
       {
         test: /\.pug$/,
-        // include: [
-        //   path.resolve(__dirname, "./src/pug")
-        // ],
         use: [
-          // "html-loader",
           "raw-loader",
           {
             loader: "pug-html-loader",
@@ -124,20 +133,15 @@ module.exports = {
   },
   plugins: [
     ...templates,
-    // new HtmlWebpackPlugin({
-    //   template: "./src/index.pug",
-    //   filename: "./index.html"
-    // }),
     new HtmlWebpackPugPlugin(),
     new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
       filename: "css/[name].css",
       chunkFilename: "[id].css"
     }),
     new CopyWebpackPlugin([{
       from: srcPath.img.src,
       to: srcPath.img.dest
-    }, ], {/* options */})
+    }, ], { /* options */ }) 
+
   ]
 };

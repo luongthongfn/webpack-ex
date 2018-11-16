@@ -1,13 +1,258 @@
-doctype html
-html
-  head
-    title Example
-    link(rel="stylesheet", href="style.css")
-  body
-    include ../modules/_header.pug
-    h1  index
-    h2 ahaasjd
-    .test test
-    img(src="../../img/aoiya2.png", alt="aoiya2.png")
-    img(src="../../img/AOIYA.png", alt="aoiya2.png")
-    include ../modules/_footer.pug
+extend ../layouts/_index.pug
+
+block content
+    #content
+        section.info#info
+            .title-bg.text-center
+                h2.title INFORMATION
+                p.subtitle お知らせ
+            
+            .container
+                article.info-arc
+                    .info-time 2018.00.00
+                    .desc
+                        p テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+
+        section.bussiness#bussiness
+            .title-bg.text-center
+                h2.title bussiness
+                p.subtitle 事業内容
+
+            .bussiness-top
+                .container
+                    .bussiness-desc
+                        p 
+                            | 2015年に産声をあげた葵屋は、大手クライアント様が抱える多岐にわたった悩みや要求に対してITを通じて相手目線に立った改善提案から解決を図り、企業の更なる発展と成長に貢献している会社です。
+                            | “誰かの幸せを実現することが、我々の幸せに直結する”を合言葉に、関わる全ての想いを紡いだミライへのシナジーを体現しています。
+                    img.diagram(src="img/diagram.png", alt="alt_text")
+
+            .bussiness-bottom
+                .bussiness-department
+                    .department-label
+                        img(src="img/label1-bg.png", alt="")
+                        .dp-mid-center
+                            img(src="img/i-agent.png" alt="")
+                            h3 agent
+                       
+                    .department-summary
+                        h4.department-summary--heading エージェント事業
+                        p ”業務効率化”と”機会創出”の実現
+                        a.arrow-down.go-to(href="#agent")
+                            img(src="img/i-arrow-down-depart.png" alt="")
+
+                .bussiness-department
+                    .department-label
+                        <img src="img/label2-bg.png" alt="">
+                        .dp-mid-center
+                            <img src="img/i-hr.png" alt="">
+                            h3 HUMAN RESOURCE
+                      
+                    .department-summary
+                        h4.department-summary--heading ヒューマンリソース事業
+                        p 総合的なITリソースプロポーザル
+                        a.arrow-down.go-to(href="#humanresource")
+                            img(src="img/i-arrow-down-depart.png" alt="")
+                   
+                .bussiness-department
+                    .department-label
+                        <img src="img/label3-bg.png" alt="">
+                        .dp-mid-center
+                            <img src="img/i-evaluation.png" alt="">
+                            h3 EVALUATION
+                       
+                    .department-summary
+                        h4.department-summary--heading 検証・評価事業
+                        p トータルクオリティ向上に貢献
+                        a.arrow-down.go-to(href="#evaluation")
+                            <img src="img/i-arrow-down-depart.png" alt="">
+
+                .bussiness-department
+                    .department-label
+                        <img src="img/label4-bg.png" alt="">
+                        .dp-mid-center
+                            <img src="img/i-operation.png" alt="">
+                            h3 OPERATION
+                       
+                    .department-summary
+                        h4.department-summary--heading オペレーション事業
+                        p 検索トレンドとマーケットニーズに基づく <br class="show-pc">ワンストップサポート
+                        a.arrow-down.go-to(href="#operation")
+                            <img src="img/i-arrow-down-depart.png" alt="">
+
+            .depart-content
+                .container
+                    .depart-card#agent
+                        h3.depart-card--heading
+                            .icon
+                                <img src="img/i-agent.png" alt="alt_text">
+                            span エージェント事業
+                        
+                        p.depart-txt
+                            | クライアントが抱える多様なニーズに応えるべく、高品質を重視したオペレーションやカスタマイズ可能なテレマーケティング体制を充実。
+                            | 加えてWEB集客(デジタルマーケティング)とFace To Faceによるプレゼンテーションの両輪で有意義且つ効果の高いサービスを提供します。
+
+                    .depart-card#humanresource
+                        h3.depart-card--heading
+                            .icon
+                                <img src="img/i-hr.png" alt="alt_text">
+                            span ヒューマンリソース事業
+                       
+                        p.depart-txt
+                            | 経験豊富な弊社コンサルタントが徹底的なヒアリングを通じて、クライアントの要求・課題・将来像を的確に把握。
+                            | マーケットニーズに則した全技術戦略の策定とサービス全体の効率化及びトータルアウトソースによるコストメリットの最大化を図ります。
+
+                    .depart-card#evaluation
+                        h3.depart-card--heading
+                            .icon
+                                <img src="img/i-evaluation.png" alt="alt_text">
+                            span 検証・評価事業
+                        
+                        p.depart-txt
+                            | 近年、複雑且つ大規模化する製品開発工程において、弊社では上流フェーズから品質管理計画作成やテストプロセス改善を実施することで品質に関わる課題解決を図ります。
+                            | また、IoTの導入やスマートデバイスの普及により負担が増えるセキュリティ管理コストを弊社QAサービスが低減してまいります。
+
+                    .depart-card#operation
+                        h3.depart-card--heading 
+                            .icon
+                                <img src="img/i-operation.png" alt="alt_text">
+                            span オペレーション事業
+                        
+                        p.depart-txt
+                            | 各種WEBサービスに関する最適なコンテンツ企画をはじめ、専門のアクティングスペシャリストが対ユーザーへの訴求効果向上や様々な広告手法を用いたマネタイズ施策、そして、スピードを担保した日次のコンテンツ更新作業を包| 括的に対応します。
+                       
+        section.recruit#recruit
+            .title-bg.text-center
+                h2.title recruit
+                p.subtitle 採用情報
+
+            .recruit-box
+                a.recruit-link(href="/renew/recruit/index.html") 採用情報
+                img.show-sp.w1(src="img/recruit-bg-sp.png" alt="alt_text")
+                img.show-pc.w1(src="img/recruit-bg-pc.png" alt="alt_text")
+
+        section.outline#outline
+            .title-bg.text-center
+                h2.title outline 
+                p.subtitle 会社概要 
+
+            .outline-bg
+                .container.outline--table
+                    .outline-row
+                        .left 会社名
+                        .right 葵屋株式会社
+
+                    .outline-row
+                        .left 設立日
+                        .right 2015年2月2日
+
+                    .outline-row
+                        .left 代表者
+                        .right 佃　一樹
+                      
+                    .outline-row
+                        .left 事業内容
+                        .right 営業代行事業、HR事業、運用代行事業、WEB制作事業、検証・評価事業
+                     
+                    .outline-row
+                        .left 電話番号
+                        .right 044-221-9662
+                      
+                    .outline-row
+                        .left メール <br class="show-sp">アドレス
+                        .right info@aoiyakk.com
+                    
+                    .outline-row
+                        .left 事業内容
+                        .right
+                            | 営業代行事業、HR事業、運用代行事業
+                            | WEB制作事業、検証・評価事業
+                      
+                    .outline-row
+                        .left 所在地
+                        .right
+                            | 〒210-0023　神奈川県川崎市川崎区
+                            | 小川町15-13　川崎トーセイビル8階
+                      
+                    .outline-row
+                        .left 取得資格
+                        .right 一般労働者派遣事業許可
+
+        section.access#access
+            .title-bg.text-center
+                h2.title access
+                p.subtitle アクセス
+
+            .access--box
+                .access--heading
+                    h3.heading-top 葵屋 株式会社
+                    p.heading-bot AOIYA
+                .access--map#googleMap
+
+        section.contact#contact
+            .title-bg.text-center
+                h2.title contact
+                p.subtitle お問い合わせ
+
+            .contact--bg
+                .contact--wrapper.container
+                    div.notice-error 入力内容に誤りがあります。
+                    h3.form-name ※全て必須項目です
+
+                    //- <!-- ajax form url in custom.js-->
+                    form.contact--form#contact--form(action="" method="POST")
+                        label
+                            span お問い合わせ項目
+                            div.custom-select
+                                input#request_hidden(type="hidden" name="request_hidden")
+                                div.input#request 項目を選択してください
+                                ul
+                                    li.selected(data-value="葵屋のサービスについて") 葵屋のサービスについて
+                                    li(data-value="採用について ") 採用について 
+                                    li(data-value="ビジネスパートナーについて") ビジネスパートナーについ
+                                    li(data-value="その他お問い合わせ") その他お問い合わせ
+                        label
+                            span お名前
+                            input#name(type="text" name="name")            
+                        label
+                            span 貴社名/部署名
+                            input#company(type="text" name="company")
+                        label
+                            span メールアドレス
+                            input#email(type="email" name="email")
+                        label
+                            span お問い合わせ内容
+                            textarea#question(name="question" cols="30" rows="7")
+                        button.contact-submit#contact-submit(type="submit") 送信<i class="fa fa-spin"></i>
+                  
+                #js_contact_confirm
+                    .contact--wrapper.container
+                        .review-content.review-request
+                            p.review-title お問い合わせ項目
+                            p.review-text テキストテキストテキストテキストテキスト
+
+                        .review-content.review-name
+                            p.review-title お名前
+                            p.review-text テキストテキスト
+
+                        .review-content.review-company
+                            p.review-title 貴社名/部署名
+                            p.review-text テキストテキスト
+
+                        .review-content.review-email
+                            p.review-title メールアドレス
+                            p.review-text テキストテキスト
+
+                        .review-content.review-question
+                            p.review-title お問い合わせ内容
+                            p.review-text テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+
+                        .review-bottom
+                            .confirm-title 上記内容で送信しますか？
+                            .confirm-btn
+                                button.btn_cancel_send キャンセル
+                                button.btn_accept_send 送信
+
+        section.view-map
+            a(href=""): img.w1(src="img/gg-view.png" alt="alt_text")
+            a(href=""): img.w1(src="img/map-view.png" alt="alt_text")
+    

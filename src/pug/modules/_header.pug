@@ -1,1 +1,32 @@
-header header
+header
+    section#menu
+        .navbar.sticky-header.fixed.clearfix
+            a.logo-sp.show-sp(href=""): img(src="img/logo-header.png" alt="alt_text")
+            //- <!--mobi button-->
+            button.nav-toggle
+                .icon-menu
+                    span.line.line-1
+                    span.line.line-2
+                    span.line.line-3
+            //- <!--/mobi button-->
+            nav.nav-container
+                ul
+                    li: a.go-to(href="#bussiness") 事業内容
+                    li: a.go-to(href="#recruit") 採用情報
+                    li: a.logo-pc.show-pc(href="") <img class="" src="img/logo-header-pc.png" alt="alt_text">
+                    li: a.go-to(href="#outline") 会社概要
+                    li: a.go-to(href="#access") アクセス
+                    li: a.go-to(href="#contact") お問い合わせ
+            a.contact-header.go-to.show-pc(href="#contact") <i class="fa fa-envelope"></i> お問い合わせ
+        
+        .js-after-fixed.show-sp
+   
+    section.banner
+        <img src="img/banner-sp.png" alt="banner" class="show-sp">
+        <img src="img/banner-pc.png" alt="banner" class="show-pc">
+        .banner-text
+            p
+                |何事にも捉われない
+                |あなたの自由を創造し
+                |あなたの可能性を発揮するステージが
+                |今、ここにあります
