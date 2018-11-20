@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require("autoprefixer");
 const globImporter = require('node-sass-glob-importer');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const SassPlugin = require('sass-webpack-plugin');
+const ConcatPlugin = require('webpack-concat-plugin');
 
 const fs = require('fs');
 const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
@@ -35,26 +37,23 @@ files.forEach(file => {
     templates.push(
       new HtmlWebpackPlugin({
         template: dir + '/' + filename + '.pug',
-        filename: filename + '.html'
+        filename: filename + '.html',
+        inject: false
       })
     );
   }
 });
-//copy plugin
-const CopyPlugin = process.env.NODE_ENV == 'production' ?
-  new CopyWebpackPlugin([{
-    from: srcPath.img.src,
-    to: srcPath.img.dest
-  }, ], { /* options */ }) :
-  {}
 
 module.exports = {
-  entry: [
-    './src/index.js'
-  ],
+  entry: {
+    main: './src/index.js',
+    // custom: './src/js/custom.js',
+    GoogleMap: './src/js/entry/GoogleMap.js',
+    // style: './src/scss/style.scss'
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "js/custom.bundle.js",
+    filename: "js/[name].bundle.js",
   },
   externals: {
     jquery: 'jQuery'
@@ -76,7 +75,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'imgs/',
+              outputPath: '../img/',
               context: ''
             }
           },
@@ -98,6 +97,7 @@ module.exports = {
             loader: "css-loader",
             options: {
               importLoaders: 1,
+              sourceMap: true,
               minimize: true
             }
           },
@@ -133,15 +133,42 @@ module.exports = {
   },
   plugins: [
     ...templates,
+
     new HtmlWebpackPugPlugin(),
+
     new MiniCssExtractPlugin({
       filename: "css/[name].css",
       chunkFilename: "[id].css"
     }),
+
     new CopyWebpackPlugin([{
       from: srcPath.img.src,
       to: srcPath.img.dest
-    }, ], { /* options */ }) 
+    }, ], { /* options */ }),
 
+    new SassPlugin({'./src/scss/style.scss':'./css/style.css'}, {
+      sourceMap: true,
+      sass: {
+        outputStyle: 'compressed'
+      },
+      autoprefixer: true
+      // autoprefixer: {
+      //   browsers: ["> 1%",
+      //     "last 2 versions",
+      //     "not ie <= 8"
+      //   ]
+      // }
+    })
+    // new ConcatPlugin({
+    //   uglify: false,
+    //   sourceMap: true,
+    //   name: 'result',
+    //   outputPath: 'path/to/output/',
+    //   fileName: '[name].[hash:8].js',
+    //   filesToConcat: ['jquery', './src/lib/**', './dep/dep.js', ['./some/**', '!./some/excludes/**']],
+    //   attributes: {
+    //     async: true
+    //   }
+    // }),
   ]
 };

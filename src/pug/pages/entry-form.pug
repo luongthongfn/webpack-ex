@@ -1,0 +1,476 @@
+extend ../layouts/_index.pug
+block content
+    <div id="content">
+
+        <section class="contact-page">
+
+            <div class="js-tab">
+                <div class="js-tab-content">
+                    <div class="tab1 tab-panel fade in active">
+                        <div class="contact-title">基本情報入力</div>
+                        <div class="contact-notify">
+                            <div class="container">
+                                <div class="notify-title">
+                                    |個人情報登録のご注意
+                                </div>
+                                <ul>
+                                    <li> 全て入力必須項目です。 </li>
+                                    <li> テキストテキストテキストテキスト </li>
+                                    <li> テキストテキストテキストテキスト </li>
+                                    <li> テキストテキストテキストテキスト </li>
+                                </ul>
+                            </div>
+                        </div> <!-- end .contact-notify -->
+                    </div>
+                    <div class="tab2 tab-panel fade  ">
+                        <div class="contact-title">お問い合わせ内容確認画面</div>
+                    </div>
+                    <div class="tab3 tab-panel fade  ">
+                        <div class="contact-title">お問い合わせ内容完了画面</div>
+                    </div>
+                </div>
+                <ul class="step-box js-tabnav">
+                    <li class="active">
+                        <a href="#tab1">
+                            <div class="step">
+                                <span>Step</span>
+                                <span class="num">1</span>
+                            </div>
+                            <span class="step-desc">入力画面</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tab2">
+                            <div class="step">
+                                <span>Step</span>
+                                <span class="num">2</span>
+                            </div>
+                            <span class="step-desc">確認画面</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tab3">
+                            <div class="step">
+                                <span>Step</span>
+                                <span class="num">3</span>
+                            </div>
+                            <span class="step-desc">完了画面</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="container">
+                    <!-- url is in custom.js: https://jsonplaceholder.typicode.com/todos/1 -->
+                    <form action="" method="POST" class="recruit-form" id="recruit-form">
+                        <span class="p-country-name" style="display:none;">Japan</span>
+                        <div class="js-tab-content">
+                            <div id="" class="tab1 tab-panel fade in active">
+                                <div class="table-layout">
+
+                                    <div class="thead">
+                                        |職種
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata"> 応募職種 </div>
+                                        <div class="tdata ">
+                                            <div class="js_radio_wrapper">
+                                                <label>
+                                                    <input type="radio" name="job" id="" value="テスター">
+                                                    <span class="custom-radio"></span>
+                                                    |テスター
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="job" id="" value="コンテンツオペレーター">
+                                                    <span class="custom-radio"></span>
+                                                    |コンテンツオペレーター
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="job" id="" value="テレフォンアポインター">
+                                                    <span class="custom-radio"></span>
+                                                    |テレフォンアポインター
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="thead">
+                                        |お名前
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+
+                                            |漢字氏名 <span class="bracket">（全角入力のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper2">
+                                                <label for="">
+                                                    <span>姓：</span>
+                                                    <input type="text" name="firstname_kanji" id="">
+                                                </label>
+                                                <label for="">
+                                                    <span>名：</span>
+                                                    <input type="text" name="lastname_kanji" id="">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |カナ氏名
+                                            <span class="bracket">（全角カナ入力のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper2">
+                                                <label for="">
+                                                    <span>セイ：</span>
+                                                    <input type="text" name="firstname_kata" id="">
+                                                </label>
+                                                <label for="">
+                                                    <span>メイ：</span>
+                                                    <input type="text" name="lastname_kata" id="">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="thead">
+                                        |生年月日・性別
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |生年月日
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper3 js_radio_wrapper" id="js-select-date">
+                                                <label>
+                                                    <select name="year" id="year">
+                                                        <option value=""></option>
+                                                        <option value="1958">1958</option>
+                                                        <option value="1959">1959</option>
+                                                        <option value="1960">1960</option>
+                                                        <option value="1961">1961</option>
+                                                        <option value="1962">1962</option>
+                                                        <option value="1963">1963</option>
+                                                        <option value="1964">1964</option>
+                                                        <option value="1965">1965</option>
+                                                        <option value="1966">1966</option>
+                                                        <option value="1967">1967</option>
+                                                        <option value="1968">1968</option>
+                                                        <option value="1969">1969</option>
+                                                        <option value="1970">1970</option>
+                                                        <option value="1971">1971</option>
+                                                        <option value="1972">1972</option>
+                                                        <option value="1973">1973</option>
+                                                        <option value="1974">1974</option>
+                                                        <option value="1975">1975</option>
+                                                        <option value="1976">1976</option>
+                                                        <option value="1977">1977</option>
+                                                        <option value="1978">1978</option>
+                                                        <option value="1979">1979</option>
+                                                        <option value="1980">1980</option>
+                                                        <option value="1981">1981</option>
+                                                        <option value="1982">1982</option>
+                                                        <option value="1983">1983</option>
+                                                        <option value="1984">1984</option>
+                                                        <option value="1985">1985</option>
+                                                        <option value="1986">1986</option>
+                                                        <option value="1987">1987</option>
+                                                        <option value="1988">1988</option>
+                                                        <option value="1989">1989</option>
+                                                        <option value="1990">1990</option>
+                                                        <option value="1991">1991</option>
+                                                        <option value="1992">1992</option>
+                                                        <option value="1993">1993</option>
+                                                        <option value="1994">1994</option>
+                                                        <option value="1995">1995</option>
+                                                        <option value="1996">1996</option>
+                                                        <option value="1997">1997</option>
+                                                        <option value="1998">1998</option>
+                                                    </select>
+                                                    <span>年</span>
+                                                </label>
+                                                <label>
+                                                    <select name="month" id="month">
+                                                        <option value=""></option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                    </select>
+                                                    <span>月</span>
+                                                </label>
+                                                <label>
+                                                    <select name="day" id="day">
+                                                        <option value=""></option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                        <option value="13">13</option>
+                                                        <option value="14">14</option>
+                                                        <option value="15">15</option>
+                                                        <option value="16">16</option>
+                                                        <option value="17">17</option>
+                                                        <option value="18">18</option>
+                                                        <option value="19">19</option>
+                                                        <option value="20">20</option>
+                                                        <option value="21">21</option>
+                                                        <option value="22">22</option>
+                                                        <option value="23">23</option>
+                                                        <option value="24">24</option>
+                                                        <option value="25">25</option>
+                                                        <option value="26">26</option>
+                                                        <option value="27">27</option>
+                                                        <option value="28">28</option>
+                                                        <option value="29">29</option>
+                                                        <option value="30">30</option>
+                                                        <option value="31">31</option>
+                                                    </select>
+                                                    <span>日</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |性別
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper7 js_radio_wrapper">
+                                                <label>
+                                                    <input type="radio" name="gender" value="男" id="">
+                                                    <span class="custom-radio"></span>
+                                                    |男
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="gender" value="女" id="">
+                                                    <span class="custom-radio"></span>
+                                                    |女
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="thead">
+                                        |メールアドレス
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |E-mailアドレス <span class="bracket">（半角入力のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper4">
+                                                <input type="email" name="email" id="email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+
+                                            |E-mailアドレス （確認用）<span class="bracket">（半角入力のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper4">
+                                                <input type="email" name="re_email" id="re_email">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="thead">
+                                        |電話番号
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |連絡用電話番号<span class="bracket">（半角数字のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper4">
+                                                <input type="tel" name="phone">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="thead">
+                                        |現住所
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |郵便番号 <span class="bracket">（半角数字７桁のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper4 get-zipcode">
+                                                <span>
+                                                    <input type="number" name="first3" id="first3" class="p-postal-code" maxlength="3">
+                                                </span>
+                                                <span>ー</span>
+                                                <span>
+                                                    <input type="number" name="last4" id="last4" class="p-postal-code" maxlength="4">
+                                                </span>
+                                                <a href="" class="btn btn-gray js-find-addr"><span class="show-pc">郵便番号から住所を探す</span><span class="show-sp">郵便番号で探す</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |都道府県
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper5">
+                                                <select name="prefecture" id="prefecture">
+                                                    <option value=""></option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |市区群・地名・番地
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper6">
+                                                <input type="text" name="city" id="city" class="p-locality">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |建物名・部屋番号 <span class="bracket">（全角入力のみ）</span>
+                                        </div>
+                                        <div class="tdata">
+                                            <div class="input-wrapper6">
+                                                <input type="text" name="address" id="area" class="p-street-address">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <section class="step-nav">
+                                    <button type="button" href="#tab2" class="next" id="firstsubmit">
+                                        <span class="eng">入力内容確認</span>
+                                        <i class="fa fa-angle-right flr"></i>
+                                    </button>
+                                </section>
+
+                            </div>
+                            <div id="" class="tab2 tab-panel fade in ">
+                                <div class="table-layout contact-confirm">
+
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |応募職種
+                                        </div>
+                                        <div class="tdata" id="preview-job"></div>
+                                    </div>
+
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |お名前
+                                        </div>
+                                        <div class="tdata" id="preview-name"></div>
+                                    </div>
+
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |生年月日
+                                        </div>
+                                        <div class="tdata" id="preview-birthday"></div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |性別
+                                        </div>
+                                        <div class="tdata" id="preview-gender"></div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |E-mailアドレス
+                                        </div>
+                                        <div class="tdata" id="preview-email"></div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |携帯用電話番号
+                                        </div>
+                                        <div class="tdata" id="preview-phone"></div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |郵便番号
+                                        </div>
+                                        <div class="tdata" id="preview-zipCode"></div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |都道府県
+                                        </div>
+                                        <div class="tdata" id="preview-pref"></div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |市区群・地名・番地
+                                        </div>
+                                        <div class="tdata" id="preview-city"></div>
+                                    </div>
+                                    <div class="trow">
+                                        <div class="tdata">
+                                            |建物名・部屋番号
+                                        </div>
+                                        <div class="tdata" id="preview-addr"></div>
+                                    </div>
+
+                                </div>
+                                <section class="step-nav step2">
+                                    <a href="#tab1" class="back" id="recruit-form-back">
+                                        |戻る
+                                    </a>
+                                    <button type="submit" href="#tab3" class="next link" id="recruit-form-submit">
+                                        <span class="eng">送信 <i class="fa form-check"></i></span>
+                                        <i class="fa fa-angle-right flr"></i>
+                                    </button>
+                                </section>
+                            </div>
+                            <div id="" class="tab3 tab-panel fade in ">
+                                <div class="contact-thanks">
+                                    <h2>お問い合わせ <br class="show-sp"> ありがとうございました</h2>
+                                    <p>
+                                        |後ほど担当者よりご連絡を <br class="show-sp">
+                                        |差し上げますので <br>
+                                        |しばらくお待ちください。
+                                    </p>
+                                </div>
+                                <section class="step-nav">
+
+                                    <a class="next link" href="/top.html">
+                                        <span class="eng">トップページへ戻る</span>
+                                        <i class="fa fa-angle-right flr"></i>
+                                    </a>
+                                </section>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div class="clb40"></div>
+        <div class="clb40"></div>
+        <div class="clb40"></div>
+        <div class="clb40"></div>
+    </div>

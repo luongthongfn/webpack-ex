@@ -1,6 +1,5 @@
-// import files from './common/index.js';
-import myMap from "./modules/GoogleMap.js"
+function requireAll(r) { r.keys().forEach(r); }
 
-import validate from "./vendor/jquery.validate"
-import test from './test.js';
-test('haha')
+requireAll(require.context('./common', true, /\.js$/));
+requireAll(require.context('./modules', true, /\.js$/));
+requireAll(require.context('./vendor', true, /\.js$/));

@@ -2,7 +2,6 @@
   "name": "webpack4-pug-sass-example",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
@@ -10,7 +9,9 @@
   },
   "author": "aytic",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "webpack-concat-plugin": "^3.0.0"
+  },
   "devDependencies": {
     "autoprefixer": "^9.3.1",
     "babel-core": "^6.26.3",
@@ -31,8 +32,8 @@
     "pug-html-loader": "^1.1.5",
     "raw-loader": "^0.5.1",
     "sass-loader": "^7.0.2",
+    "sass-webpack-plugin": "^1.0.3",
     "style-loader": "^0.23.1",
-    "url-loader": "^1.1.2",
     "webpack": "^4.10.2",
     "webpack-cli": "^3.0.1",
     "webpack-dev-server": "^3.1.4"
