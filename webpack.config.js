@@ -3,13 +3,19 @@ const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require("autoprefixer");
+const postcssImport = require("postcss-import");
 const globImporter = require('node-sass-glob-importer');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const SassPlugin = require('sass-webpack-plugin');
+
 const ConcatPlugin = require('webpack-concat-plugin');
 
 const fs = require('fs');
 const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
+
+const IP = require('ip');
+const DIST = 'dist';
+const HOST = IP.address();
+const PORT = 3000;
+
 const srcPath = {
   js: {
     src: './src/js'
@@ -44,131 +50,129 @@ files.forEach(file => {
   }
 });
 
-module.exports = {
-  entry: {
-    main: './src/index.js',
-    // custom: './src/js/custom.js',
-    GoogleMap: './src/js/entry/GoogleMap.js',
-    // style: './src/scss/style.scss'
-  },
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "js/[name].bundle.js",
-  },
-  externals: {
-    jquery: 'jQuery'
-  },
-  module: {
-    rules: [{
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            // presets: ["es2015"]
-          }
-        }
-      },
-      {
-        test: /\.(gif|png|jpe?g|woff|woff2|eot|ttf|svg)$/,
-        use: [{
-            loader: 'file-loader',
+module.exports = (env, argv) => {
+  console.log('~~~ webpack mode :', argv.mode)
+  return {
+    mode: argv.mode,
+    entry: {
+      custom: './src/index.js',
+      GoogleMap: './src/js/entry/GoogleMap.js',
+
+    },
+    output: {
+      path: path.resolve(__dirname, DIST),
+      // filename: "js/[name].js",
+      filename: "js/[name].js",
+    },
+    externals: {
+      jquery: 'jQuery'
+    },
+    module: {
+      rules: [{
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: "babel-loader",
             options: {
-              name: '[name].[ext]',
-              outputPath: '../img/',
-              context: ''
-            }
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              bypassOnDebug: true, // webpack@1.x
-              disable: true, // webpack@2.x and newer
-            },
-          },
-        ]
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          // process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
-          MiniCssExtractPlugin.loader,
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 1,
-              sourceMap: true,
-              minimize: true
-            }
-          },
-          "postcss-loader",
-          {
-            loader: "sass-loader",
-            options: {
-              importer: globImporter()
+              // presets: ["es2015"]
             }
           }
-        ]
-      },
-      {
-        test: /\.pug$/,
-        use: [
-          "raw-loader",
-          {
-            loader: "pug-html-loader",
-            options: {
-              pretty: true
-            }
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              bypassOnDebug: true, // webpack@1.x
-              disable: true, // webpack@2.x and newer
+        },
+        {
+          test: /\.(gif|png|jpe?g|woff|woff2|eot|ttf|svg)$/,
+          use: [{
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: '../img/',
+                context: ''
+              }
             },
-          },
-        ]
-      },
-    ]
-  },
-  plugins: [
-    ...templates,
+            {
+              loader: 'image-webpack-loader',
+              options: {
+                bypassOnDebug: true, // webpack@1.x
+                disable: true, // webpack@2.x and newer
+              },
+            },
+          ]
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            argv.mode !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+            {
+              loader: "css-loader",
+              options: {
+                importLoaders: 1,
+                sourceMap: true,
+                minimize: true
+              }
+            },
+            {
+              loader: "postcss-loader",
+              options: {
+                sourceMap: argv.mode === 'production' ? false : 'inline',
+                plugins: (loader) => [
+                  require('postcss-import')({ root: loader.resourcePath }),
+                  require('cssnano')(),
+                  autoprefixer({
+                    browsers: [
+                      "> 1%",
+                      "last 2 versions",
+                      "not ie <= 8"
+                    ]
+                  })
+                ]
+              }
+            },
+            {
+              loader: "sass-loader",
+              options: {
+                importer: globImporter(),
+                sourceMap: true
+              }
+            }
+          ]
 
-    new HtmlWebpackPugPlugin(),
+        },
+        {
+          test: /\.pug$/,
+          use: [
+            "raw-loader",
+            {
+              loader: "pug-html-loader",
+              options: {
+                pretty: true
+              }
+            },
 
-    new MiniCssExtractPlugin({
-      filename: "css/[name].css",
-      chunkFilename: "[id].css"
-    }),
+          ]
+        },
+      ]
+    },
+    plugins: [
+      ...templates,
 
-    new CopyWebpackPlugin([{
-      from: srcPath.img.src,
-      to: srcPath.img.dest
-    }, ], { /* options */ }),
+      new HtmlWebpackPugPlugin(),
 
-    new SassPlugin({'./src/scss/style.scss':'./css/style.css'}, {
-      sourceMap: true,
-      sass: {
-        outputStyle: 'compressed'
-      },
-      autoprefixer: true
-      // autoprefixer: {
-      //   browsers: ["> 1%",
-      //     "last 2 versions",
-      //     "not ie <= 8"
-      //   ]
-      // }
-    })
-    // new ConcatPlugin({
-    //   uglify: false,
-    //   sourceMap: true,
-    //   name: 'result',
-    //   outputPath: 'path/to/output/',
-    //   fileName: '[name].[hash:8].js',
-    //   filesToConcat: ['jquery', './src/lib/**', './dep/dep.js', ['./some/**', '!./some/excludes/**']],
-    //   attributes: {
-    //     async: true
-    //   }
-    // }),
-  ]
+      new MiniCssExtractPlugin({
+        filename: "css/style.css",
+        chunkFilename: "[id].css"
+      }),
+
+
+    ],
+    devServer: {
+      contentBase: path.join(__dirname, DIST),
+      host: HOST,
+      port: PORT,
+    },
+
+    devtool: argv.mode === 'production' ? false : 'inline-source-map',
+
+    // optimization: {
+    //   minimize: false
+    // }
+  }
 };

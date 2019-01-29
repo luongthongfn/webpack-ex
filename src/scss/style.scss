@@ -21,12 +21,6 @@
 // *                                   main                                   *
 // ****************************************************************************
 
-@import "./modules/_share.scss";
-// @import "./modules/*.scss";
-// @import "./pages/*.scss";
-.test{
-    // background: url(../../img/i-agent.png);
-    // background: url(../../../img/i-hr.png);
-    background: url(../img/i-opera.png);
-    background: url(../img/i-eva.png);
-}
+// @import "./modules/_share.scss";
+@import "./modules/*.scss";
+@import "./pages/*.scss";

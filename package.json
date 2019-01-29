@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
-    "watch": "webpack-dev-server --mode development --open"
+    "dev": "webpack --mode development --progress",
+    "build": "webpack --mode production --progress",
+    "server": "webpack-dev-server --mode development --open --progress",
+    "start": "npm run server"
   },
   "author": "aytic",
   "license": "ISC",
@@ -17,10 +18,9 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
-    "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^0.28.11",
+    "cssnano": "^4.1.8",
     "file-loader": "^2.0.0",
-    "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "html-webpack-pug-plugin": "^0.3.0",
     "image-webpack-loader": "^4.5.0",
@@ -28,6 +28,7 @@
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "node-sass-glob-importer": "^5.2.0",
+    "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "pug-html-loader": "^1.1.5",
     "raw-loader": "^0.5.1",
