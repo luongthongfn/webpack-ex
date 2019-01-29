@@ -1,4 +1,7 @@
 //contact-form
+
+import {validate} from '../vendor/jquery.validate';
+
 $(function () {
 
     var $reqVal,

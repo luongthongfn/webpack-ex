@@ -51,7 +51,13 @@ files.forEach(file => {
 });
 
 module.exports = (env, argv) => {
-  console.log('~~~ webpack mode :', argv.mode)
+  console.log('\x1b[33m'); //color
+  console.log('~'.repeat(80));
+  console.warn('~~~ webpack mode :', argv.mode)
+  console.log('~'.repeat(80));
+  console.log('\x1b[0m') // reset color
+  // console.log('argv: ', argv)
+
   return {
     mode: argv.mode,
     entry: {
